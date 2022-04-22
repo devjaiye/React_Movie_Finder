@@ -1,0 +1,99 @@
+import './App.css';
+
+//... render fragment...
+const App =()=> {
+  const name = null
+  return (
+    <div className="App">
+      <h1>Hello</h1>
+      {name ? (
+        <>
+        <h1>test</h1>
+        </>
+      ):(
+        <>
+        <h2>testing...</h2>.
+        <h2>No name to show</h2>
+        </>
+      )
+      }
+    </div>
+  );
+}
+export default App;
+
+//....How to use components
+
+import './App.css';
+
+const Employee = () =>{
+    return(
+      <>
+      <h3>John Doe</h3>
+      <h3>Maxwell Smith</h3>
+      <h3>Alagba Dplus</h3>
+      </>
+    )
+}
+
+const App = ()=> {
+return(
+<div className='app'>
+   <Employee/>
+   <Employee/>
+   <Employee/>
+</div>
+)}
+
+export default App
+
+
+
+//...React props 
+import './App.css';
+
+
+const Employee =(props) =>{
+  return(
+    <>
+      <h3>firtName: {props.name}</h3>
+      <h3>lastName: {props.lastName}</h3>
+      <h4>occupation: Developer</h4>
+
+    </>
+  )
+}
+
+const App = () =>{
+  return(
+    <div className="App">
+    <Employee name= "Jeff" lastName={"Jerry"}/>
+    <Employee name={"Becky"} lastName= {"Alex"}/>
+    <Employee name={"Ela"} lastName={"Mae"}/>
+    </div>
+  )
+}
+
+export default App 
+
+//...React State 
+
+import './App.css'
+import { useEffect, useState } from 'react'
+
+const App = () =>{
+  const [counter, setCounter] = useState(0)
+    useEffect(()=>{
+      alert("You've changed the counter to " + counter)
+    }, [counter]) //...[counter is called dependency array]   
+
+  return(
+    <div className='App'>
+      <button onClick={()=> setCounter((prevCount) => prevCount - 1)}> - </button>
+      <h1>{counter}</h1>
+      <button onClick={()=> setCounter((nextCount)=> nextCount + 1)}> + </button>
+    </div>
+  )
+}
+
+export default App
